@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>📰 Latest Cybersecurity News</h1>
+{% for item in news %}
+<div class="card">
+    <h5><a href="{{ item.link }}" target="_blank">{{ item.title }}</a></h5>
+    <small class="text-muted">{{ item.published }}</small>
+</div>
+{% endfor %}
+{% endblock %}

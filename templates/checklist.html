@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>✅ Secure Your Device Checklist</h1>
+<h4>📱 Phone</h4>
+<label><input type="checkbox" class="check"> Enable 2FA</label>
+<label><input type="checkbox" class="check"> Use Strong PIN/Password</label>
+<h4>💻 Laptop</h4>
+<label><input type="checkbox" class="check"> Keep OS Updated</label>
+<label><input type="checkbox" class="check"> Use Antivirus Software</label>
+<h4>🌐 Social Media</h4>
+<label><input type="checkbox" class="check"> Review Privacy Settings</label>
+<label><input type="checkbox" class="check"> Avoid Unknown Links</label>
+<script>
+const checkboxes = document.querySelectorAll('.check');
+checkboxes.forEach((cb, i) => {
+    cb.checked = localStorage.getItem(`check${i}`) === "true";
+    cb.addEventListener("change", () => {
+        localStorage.setItem(`check${i}`, cb.checked);
+    });
+});
+</script>
+{% endblock %}
